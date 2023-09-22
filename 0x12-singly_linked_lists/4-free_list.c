@@ -7,14 +7,22 @@
 
 void free_list(list_t *head)
 {
-	while (head != NULL)
-	{
-		free(head->str);
-		free(head);
-		head = head->next;
-	}
-}
 
+
+
+	list_t *ptr;
+
+        if (head == NULL) 
+                return;
+
+        while (head != NULL) 
+        {
+              ptr = head;
+              head = head->next; 
+              free(ptr->str); 
+              free(ptr);
+        }
+}
 /**
  * another way using temp pointer
  *
